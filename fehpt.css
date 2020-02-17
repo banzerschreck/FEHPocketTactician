@@ -1,0 +1,92 @@
+@font-face {
+  font-family: Heroes;
+  src: url(images/System.ttf);
+}
+body {
+  background: url("images/Aether Raids/Bg_SkyCastle_00.png") no-repeat center center fixed;
+  background-size: cover;
+  margin: 0px;
+  padding: 0px;
+  font-family: Heroes;
+}
+
+#navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+#navbar ul {
+  list-style-type: none;
+  margin: 0;
+  background-color: black;
+  color: white;
+  text-align: center;
+  font-size: 25px;
+}
+#navbar ul li {
+  display: inline;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-shadow: rgb(0, 0, 0) 2px 2px 0px, 
+  rgb(0, 0, 0) 2px -2px 0px, 
+  rgb(0, 0, 0) -2px 2px 0px, 
+  rgb(0, 0, 0) -2px -2px 0px, 
+  rgb(0, 0, 0) 2px 0px 0px, 
+  rgb(0, 0, 0) 0px 2px 0px, 
+  rgb(0, 0, 0) -2px 0px 0px, 
+  rgb(0, 0, 0) 0px -2px 0px;
+}
+#navbar .navSelected {
+  text-shadow: rgb(125, 125, 0) 2px 2px 0px, 
+  rgb(0, 0, 0) 2px -2px 0px, 
+  rgb(0, 0, 0) -2px 2px 0px, 
+  rgb(125, 125, 0) -2px -2px 0px, 
+  rgb(0, 0, 0) 2px 0px 0px, 
+  rgb(0, 0, 0) 0px 2px 0px, 
+  rgb(0, 0, 0) -2px 0px 0px, 
+  rgb(0, 0, 0) 0px -2px 0px;
+}
+
+#navbar a {
+  text-align: center;
+}
+
+#navbar li:hover {
+  text-shadow: rgb(125, 125, 0) 2px 2px 0px, 
+  rgb(0, 0, 0) 2px -2px 0px, 
+  rgb(0, 0, 0) -2px 2px 0px, 
+  rgb(125, 125, 0) -2px -2px 0px, 
+  rgb(0, 0, 0) 2px 0px 0px, 
+  rgb(0, 0, 0) 0px 2px 0px, 
+  rgb(0, 0, 0) -2px 0px 0px, 
+  rgb(0, 0, 0) 0px -2px 0px;
+}
+
+a:link {
+  color: white; 
+  text-decoration: none;
+}
+a:visited {
+  color: white;
+  text-decoration: none;
+}
+
+#title {
+  background: url("images/TitleTop.png") no-repeat center center;
+  background-size: contain;
+  font-size: 40px;
+  text-shadow: rgb(0, 0, 0) 2px 2px 0px, 
+  rgb(0, 0, 0) 2px -2px 0px, 
+  rgb(0, 0, 0) -2px 2px 0px, 
+  rgb(0, 0, 0) -2px -2px 0px, 
+  rgb(0, 0, 0) 2px 0px 0px, 
+  rgb(0, 0, 0) 0px 2px 0px, 
+  rgb(0, 0, 0) -2px 0px 0px, 
+  rgb(0, 0, 0) 0px -2px 0px;
+  color: white;
+  text-align: center;
+  padding-top: 5px;
+  height: 135px;
+  margin: 100px;
+}
