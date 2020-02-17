@@ -1,27 +1,9 @@
-# COSC473FEHPocketTactician
-A project for Dr. Ghani's COSC 473 class by Ethan Turner, Chris Nelson, and Mathias Botti.
+##Fire Emblem Heroes Pocket Tactician!
 
-View the project here! https://banzerschreck.github.io/COSC473FEHPocketTactician/
+A little pet project of mine that hopefully turns into something useful for the community
 
-Some helpful links for use during development:
+This project started as a class project during my senior year at IUP, check that version out here:
 
-Trello page:
-https://trello.com/b/k8XedOJ5/cosc-473-feh-pocket-tactician
+Built completely from the ground up, trimming the fat of MongoDB and janky workarounds through GitHub page hosting!
 
-Sprite resources:
-https://www.spriters-resource.com/mobile/fireemblemheroes/
-
-AI rules:
-http://vervefeh.osnac.net/textguide.html
-
-Hero data:
-https://fireemblem.gamepress.gg/heroes
-
-Map data:
-https://feheroes.gamepedia.com/Story_Maps
-
-Good View Hero layout to emulate?
-https://feh-stuff.github.io/unit-builder/
-
-MongoDB Stitch Documentation:
-https://docs.mongodb.com/stitch-sdks/js/4/index.html
+Thanks for checking this out, and may Sothis bless your summoning sessions.
