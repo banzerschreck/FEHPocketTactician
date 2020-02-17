@@ -1,0 +1,296 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <title>Tactics Room</title>
+  <link rel="stylesheet" type="text/css" href="index.css" />
+  <script src="https://s3.amazonaws.com/stitch-sdks/js/bundles/4.3.2/stitch.js"></script>
+  <script src="scripts.js"></script>
+  <script src="tacticsroom.js"></script>
+  <style>
+    td {
+      background-color: white;
+      border: 1px solid black;
+    }
+    
+    #tacticsTable td {
+      width: 50px;
+      height: 50px;
+      border: 1px solid black;
+      background-color: white;
+      text-align: center;
+      font-size: 24pt;
+    }
+
+    #emptyTD {
+      opacity: 0.0;
+    }
+  </style>
+</head>
+
+<body>
+<div id="notLoggedIn">
+  <p>Please login to view this page</p>
+</div>
+<div id="loggedIn">
+  <div id="navbarAndLogin">
+    <ul class="navbarUL">
+      <li class="navbar"><a href="./index.html">FEHPT</a></li>       
+      <li class="navbar" id="navbarLoggedInManage"><a href="./manageheroes.html">Manage Heroes</a></li>
+      <li class="navbar" id="navbarLoggedInTactics"><a class="active" href="./tacticsroom.html">Tactics Room</a></li>
+      <li class="navbar"><a href="./heroes.html">View Heroes</a></li>
+      <li class="navbar"><a href="./skills.html">View Skills</a></li>
+      <li class="navbar" id="navbarAdminLoggedIn"><a href="./admin.html">Admin</a></li>
+
+      <li class="navbar" id="navbarLogin"><a href="#Login">Login</a></li>
+      <li class="navbar" id="navbarLogout"><a href="#Logout" id="navbarLogoutAnchor"></a></li>
+    </ul>
+    <form id="floatingLogin" class="hidden" onsubmit="login(flEmail.value, flPassword.value)">
+      <label for="flEmail">Email:</label>
+      <input type="text" id="flEmail"></input><br />
+      <label for="flPassword">Password:</label>
+      <input type="password" id="flPassword"></input><br />
+      <a href="login.html#register">Register</a>
+      <a href="login.html#forgotAndRegistration">Forgot Password</a>
+      <input type="submit" value="Login"></input>
+    </form>
+  </div>
+  <h1 class="title">Tactics Room</h1>
+  <div class="tacticSetup">
+  <label for="mapType">Map Type </label><select id="mapType">
+    <option value="arena">Arena</option>
+    <option value="ar">Aether Raids</option>
+    <option value="gc" disabled>Grand Conquests</option>
+  </select>
+    </div>
+  <div id="pickHeroes" class="tacticSetup">
+    <label for="hero1">Hero 1 </label><select id="hero1"><option>None</option></select><br />
+    <table id="hero1Stats" class="hidden">
+      <tr>
+        <td rowspan=4><div class="croppedsmall"><img id="h1Img"></div></td>
+        <td id="h1Name" colspan=2>Name:</td>
+        <td id="h1A">A:</td>
+        <td id="h1B">B:</td>
+        <td id="h1C">C:</td>
+        <td id="h1S">S:</td>
+      </tr>
+      <tr>
+        <td id="h1HP" colspan=2>HP:</td>
+        <td id="h1Weapon" colspan=4>Weapon:</td>
+      </tr>
+      <tr>
+        <td id="h1Atk">Atk:</td>
+        <td id="h1Spd">Spd:</td>
+        <td id="h1Assist" colspan=4>Assist:</td>
+      </tr>
+      <tr>
+        <td id="h1Def">Def:</td>
+        <td id="h1Res">Res:</td>
+        <td id="h1Special" colspan=4>Special:</td>
+      </tr>
+    </table>
+
+    <label for="hero2">Hero 2 </label><select id="hero2"><option>None</option></select><br />
+    <table id="hero2Stats" class="hidden">
+      <tr>
+        <td rowspan=4><div class="croppedsmall"><img id="h2Img"></div></td>
+        <td id="h2Name" colspan=2>Name:</td>
+        <td id="h2A">A:</td>
+        <td id="h2B">B:</td>
+        <td id="h2C">C:</td>
+        <td id="h2S">S:</td>
+      </tr>
+      <tr>
+        <td id="h2HP" colspan=2>HP:</td>
+        <td id="h2Weapon" colspan=4>Weapon:</td>
+      </tr>
+      <tr>
+        <td id="h2Atk">Atk:</td>
+        <td id="h2Spd">Spd:</td>
+        <td id="h2Assist" colspan=4>Assist:</td>
+      </tr>
+      <tr>
+        <td id="h2Def">Def:</td>
+        <td id="h2Res">Res:</td>
+        <td id="h2Special" colspan=4>Special:</td>
+      </tr>
+    </table>
+
+    <label for="hero3">Hero 3 </label><select id="hero3"><option>None</option></select><br />
+    <table id="hero3Stats" class="hidden">
+      <tr>
+        <td rowspan=4><div class="croppedsmall"><img id="h3Img"></div></td>
+        <td id="h3Name" colspan=2>Name:</td>
+        <td id="h3A">A:</td>
+        <td id="h3B">B:</td>
+        <td id="h3C">C:</td>
+        <td id="h3S">S:</td>
+      </tr>
+      <tr>
+        <td id="h3HP" colspan=2>HP:</td>
+        <td id="h3Weapon" colspan=4>Weapon:</td>
+      </tr>
+      <tr>
+        <td id="h3Atk">Atk:</td>
+        <td id="h3Spd">Spd:</td>
+        <td id="h3Assist" colspan=4>Assist:</td>
+      </tr>
+      <tr>
+        <td id="h3Def">Def:</td>
+        <td id="h3Res">Res:</td>
+        <td id="h3Special" colspan=4>Special:</td>
+      </tr>
+    </table>
+
+    <label for="hero4">Hero 4 </label><select id="hero4"><option>None</option></select><br />
+    <table id="hero4Stats" class="hidden">
+      <tr>
+        <td rowspan=4><div class="croppedsmall"><img id="h4Img"></div></td>
+        <td id="h4Name" colspan=2>Name:</td>
+        <td id="h4A">A:</td>
+        <td id="h4B">B:</td>
+        <td id="h4C">C:</td>
+        <td id="h4S">S:</td>
+      </tr>
+      <tr>
+        <td id="h4HP" colspan=2>HP:</td>
+        <td id="h4Weapon" colspan=4>Weapon:</td>
+      </tr>
+      <tr>
+        <td id="h4Atk">Atk:</td>
+        <td id="h4Spd">Spd:</td>
+        <td id="h4Assist" colspan=4>Assist:</td>
+      </tr>
+      <tr>
+        <td id="h4Def">Def:</td>
+        <td id="h4Res">Res:</td>
+        <td id="h4Special" colspan=4>Special:</td>
+      </tr>
+    </table>
+
+    <label for="hero5">Hero 5 </label><select id="hero5" disabled><option>None</option></select><br />
+    <table id="hero5Stats" class="hidden">
+      <tr>
+        <td rowspan=4><div class="croppedsmall"><img id="h5Img"></div></td>
+        <td id="h5Name" colspan=2>Name:</td>
+        <td id="h5A">A:</td>
+        <td id="h5B">B:</td>
+        <td id="h5C">C:</td>
+        <td id="h5S">S:</td>
+      </tr>
+      <tr>
+        <td id="h5HP" colspan=2>HP:</td>
+        <td id="h5Weapon" colspan=4>Weapon:</td>
+      </tr>
+      <tr>
+        <td id="h5Atk">Atk:</td>
+        <td id="h5Spd">Spd:</td>
+        <td id="h5Assist" colspan=4>Assist:</td>
+      </tr>
+      <tr>
+        <td id="h5Def">Def:</td>
+        <td id="h5Res">Res:</td>
+        <td id="h5Special" colspan=4>Special:</td>
+      </tr>
+    </table>
+  </div>
+  <div id="pickEnemies" class="tacticSetup">
+    <label for="enemy1">Enemy 1 </label><select id="enemy1"><option>None</option></select><br />
+    <label for="enemy2">Enemy 2 </label><select id="enemy2"><option>None</option></select><br />
+    <label for="enemy3">Enemy 3 </label><select id="enemy3"><option>None</option></select><br />
+    <label for="enemy4">Enemy 4 </label><select id="enemy4"><option>None</option></select><br />
+    <label for="enemy4">Enemy 5 </label><select id="enemy5" disabled><option>None</option></select><br />
+    <label for="enemy4">Enemy 6 </label><select id="enemy6" disabled><option>None</option></select><br />
+  </div>
+  <input class="startButton" type="button" id="start" value="Start battle!">
+  <div id="gameBoard">
+    <h1 id="movesTitle">Moves</h1>
+    <table id="tacticsTable">
+      <tr>
+        <td id="emptyTD"></td>
+        <td>A</td>
+        <td>B</td>
+        <td>C</td>
+        <td>D</td>
+        <td>E</td>
+        <td>F</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td><div id="A1" class="croppedsmall"></div></td>
+        <td><div id="B1" class="croppedsmall"></div></td>
+        <td><div id="C1" class="croppedsmall"></div></td>
+        <td><div id="D1" class="croppedsmall"></div></td>
+        <td><div id="E1" class="croppedsmall"></div></td>
+        <td><div id="F1" class="croppedsmall"></div></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td><div id="A2" class="croppedsmall"></div></td>
+        <td><div id="B2" class="croppedsmall"></div></td>
+        <td><div id="C2" class="croppedsmall"></div></td>
+        <td><div id="D2" class="croppedsmall"></div></td>
+        <td><div id="E2" class="croppedsmall"></div></td>
+        <td><div id="F2" class="croppedsmall"></div></td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td><div id="A3" class="croppedsmall"></div></td>
+        <td><div id="B3" class="croppedsmall"></div></td>
+        <td><div id="C3" class="croppedsmall"></div></td>
+        <td><div id="D3" class="croppedsmall"></div></td>
+        <td><div id="E3" class="croppedsmall"></div></td>
+        <td><div id="F3" class="croppedsmall"></div></td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td><div id="A4" class="croppedsmall"></div></td>
+        <td><div id="B4" class="croppedsmall"></div></td>
+        <td><div id="C4" class="croppedsmall"></div></td>
+        <td><div id="D4" class="croppedsmall"></div></td>
+        <td><div id="E4" class="croppedsmall"></div></td>
+        <td><div id="F4" class="croppedsmall"></div></td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td><div id="A5" class="croppedsmall"></div></td>
+        <td><div id="B5" class="croppedsmall"></div></td>
+        <td><div id="C5" class="croppedsmall"></div></td>
+        <td><div id="D5" class="croppedsmall"></div></td>
+        <td><div id="E5" class="croppedsmall"></div></td>
+        <td><div id="F5" class="croppedsmall"></div></td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td><div id="A6" class="croppedsmall"></div></td>
+        <td><div id="B6" class="croppedsmall"></div></td>
+        <td><div id="C6" class="croppedsmall"></div></td>
+        <td><div id="D6" class="croppedsmall"></div></td>
+        <td><div id="E6" class="croppedsmall"></div></td>
+        <td><div id="F6" class="croppedsmall"></div></td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td><div id="A7" class="croppedsmall"></div></td>
+        <td><div id="B7" class="croppedsmall"></div></td>
+        <td><div id="C7" class="croppedsmall"></div></td>
+        <td><div id="D7" class="croppedsmall"></div></td>
+        <td><div id="E7" class="croppedsmall"></div></td>
+        <td><div id="F7" class="croppedsmall"></div></td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td><div id="A8" class="croppedsmall"></div></td>
+        <td><div id="B8" class="croppedsmall"></div></td>
+        <td><div id="C8" class="croppedsmall"></div></td>
+        <td><div id="D8" class="croppedsmall"></div></td>
+        <td><div id="E8" class="croppedsmall"></div></td>
+        <td><div id="F8" class="croppedsmall"></div></td>
+      </tr>
+    </table>
+    <ol id="moves"></ol>
+  </div>
+</div>
+</body>
+</html>
