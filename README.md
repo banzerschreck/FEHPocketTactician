@@ -1,9 +1,6 @@
-##Fire Emblem Heroes Pocket Tactician!
+Fire Emblem Heroes Pocket Tactician!
+https://banzerschreck.github.io/FEHPocketTactician/about.html
 
-A little pet project of mine that hopefully turns into something useful for the community
+A website where users can look up info about heroes and skills, manage a virtual barracks, and simulate combat against the AI!
 
-This project started as a class project during my senior year at IUP, check that version out here:
-
-Built completely from the ground up, trimming the fat of MongoDB and janky workarounds through GitHub page hosting!
-
-Thanks for checking this out, and may Sothis bless your summoning sessions.
+Currently in development, please stay tuned for future updates!
